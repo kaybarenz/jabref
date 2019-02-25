@@ -343,4 +343,25 @@ class StringUtilTest {
         assertEquals("A", StringUtil.capitalizeFirst("a"));
         assertEquals("Aa", StringUtil.capitalizeFirst("AA"));
     }
+
+    @Test
+    void givenAnyString_thenReturnIfStringIsBlank() {
+        assertEquals(true, StringUtil.isBlank(""));
+        assertEquals(true, StringUtil.isBlank("     "));
+        assertEquals(false, StringUtil.isBlank("not blank"));
+    }
+
+    @Test
+    void givenAnyString_thenReturnIfStringIsNotBlank() {
+        assertEquals(false, StringUtil.isNotBlank(""));
+        assertEquals(false, StringUtil.isNotBlank("     "));
+        assertEquals(true, StringUtil.isNotBlank("not blank"));
+    }
+
+    @Test
+    void givenAnyString_whenGettingSubstring_thenReturnCorrectSubstring() {
+        assertEquals("d", StringUtil.substringBetween("words", "r", "s"));
+        assertEquals("this", StringUtil.substringBetween("get this word", " ", " "));
+        assertEquals(" many words ", StringUtil.substringBetween("many many words yea", "many", "yea"));
+    }
 }
