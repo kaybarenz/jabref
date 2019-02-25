@@ -12,4 +12,11 @@ public class AutosaveManagerTest {
     public void givenNoAutosaveManager_whenAutosaveStarted_thenAutosaveManagerCreated() {
         AutosaveManager sut = AutosaveManager.start(new BibDatabaseContext());
     }
+
+    @Test
+    public void givenAutosaveManagerCreated_whenAutosaveShutdown_thenAutosaveManagerShutdown() {
+        BibDatabaseContext database = new BibDatabaseContext();
+        AutosaveManager sut = AutosaveManager.start(database);
+        AutosaveManager.shutdown(database);
+    }
 }
