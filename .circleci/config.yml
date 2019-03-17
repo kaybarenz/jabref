@@ -66,6 +66,19 @@ jobs:
       tags:
         only: /.*/
 
+tests:
+    steps:
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/test-results/junit/
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
+          when: always
+      - store_test_results:
+          path: ~/test-results
+      - store_artifacts:
+          path: ~/test-results/junit
+
 workflows:
   version: 2
   build:
@@ -74,6 +87,7 @@ workflows:
       - buildDev:
           requires:
             - downloadinstall4j
+      - tests:
       - buildRelease:
           requires:
             - downloadinstall4j
