@@ -42,7 +42,7 @@ jobs:
       - store_artifacts:
           path: build/releases
           destination: build
-      - run: ./gradlew jacocoTestReport
+      - run: ./gradlew jacocoTestCoverageVerification
       - run:
          name: Save test results
          command: |
