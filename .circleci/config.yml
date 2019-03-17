@@ -39,6 +39,7 @@ jobs:
           key: dependency-cache
           paths:
             - "~/.gradle"
+      - jacocoTestReport
       - store_artifacts:
           path: build/releases
           destination: build
