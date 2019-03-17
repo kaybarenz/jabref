@@ -40,7 +40,7 @@ jobs:
           paths:
             - "~/.gradle"
       - store_test_results:
-          path: build/test-results/test
+          path: ~/build/test-results/test
       - store_artifacts:
           path: build/releases
           destination: build
