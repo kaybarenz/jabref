@@ -42,7 +42,6 @@ jobs:
       - store_artifacts:
           path: build/releases
           destination: build
-      - run: scripts/upload-to-builds.jabref.org.sh
 
   buildRelease:
     docker:
