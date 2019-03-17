@@ -67,6 +67,8 @@ jobs:
 
   tests:
       steps:
+        docker:
+          - image: circleci/openjdk:8-jdk
         - run:
             name: Save test results
             command: |
