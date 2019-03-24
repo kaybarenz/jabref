@@ -2,6 +2,7 @@ package org.jabref.logic.logging;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+<<<<<<< HEAD
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.junit.Assert;
@@ -26,4 +27,17 @@ class LogMessagesTest {
         ObservableList<LogEvent> messages = FXCollections.observableArrayList();
         Assert.assertEquals(messages, LogMessages.getInstance().getMessages());
     }
+=======
+import org.jabref.logic.logging.LogMessages;
+
+import org.junit.jupiter.api.Test;
+
+public class LogMessagesTest {
+
+    @Test
+    public void givenLogMessages_whenGetInstance_thenInstanceReturned() {
+        LogMessages.getInstance();
+    }
+
+>>>>>>> unitTestingForLogging
 }
