@@ -42,7 +42,17 @@ jobs:
       - store_artifacts:
           path: build/releases
           destination: build
-      - run: scripts/upload-to-builds.jabref.org.sh
+      - run: ./gradlew jacocoTestCoverageVerification
+      - run:
+         name: Save test results
+         command: |
+           mkdir -p ~/test-results/junit/
+           find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/test-results/junit/ \;
+         when: always
+      - store_test_results:
+         path: ~/test-results
+      - store_artifacts:
+         path: ~/test-results/junit
 
   buildRelease:
     docker:
@@ -65,6 +75,7 @@ jobs:
     filters:
       tags:
         only: /.*/
+
 
 workflows:
   version: 2
