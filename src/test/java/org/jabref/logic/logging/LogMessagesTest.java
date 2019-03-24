@@ -1,5 +1,7 @@
 package org.jabref.logic.logging;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.jabref.logic.logging.LogMessages;
 
 import org.junit.jupiter.api.Test;
@@ -10,5 +12,5 @@ public class LogMessagesTest {
     public void givenLogMessages_whenGetInstance_thenInstanceReturned() {
         LogMessages.getInstance();
     }
-    
+
 }
