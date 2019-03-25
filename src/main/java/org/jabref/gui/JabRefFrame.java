@@ -633,7 +633,8 @@ public class JabRefFrame extends BorderPane implements OutputPrinter {
 
                 factory.createIconButton(StandardActions.FORK_ME, new OpenBrowserAction("https://github.com/JabRef/jabref")),
                 factory.createIconButton(StandardActions.OPEN_FACEBOOK, new OpenBrowserAction("https://www.facebook.com/JabRef/")),
-                factory.createIconButton(StandardActions.OPEN_TWITTER, new OpenBrowserAction("https://twitter.com/jabref_org"))
+                factory.createIconButton(StandardActions.OPEN_TWITTER, new OpenBrowserAction("https://twitter.com/jabref_org")),
+                factory.createIconButton(StandardActions.OPEN_DISCORD, new OpenBrowserAction("https://discord.gg/Ymhrpep"))
         );
 
         HBox.setHgrow(globalSearchBar, Priority.ALWAYS);
@@ -957,6 +958,7 @@ public class JabRefFrame extends BorderPane implements OutputPrinter {
                         factory.createMenuItem(StandardActions.OPEN_BLOG, new OpenBrowserAction("https://blog.jabref.org/")),
                         factory.createMenuItem(StandardActions.OPEN_FACEBOOK, new OpenBrowserAction("https://www.facebook.com/JabRef/")),
                         factory.createMenuItem(StandardActions.OPEN_TWITTER, new OpenBrowserAction("https://twitter.com/jabref_org")),
+
 
                         new SeparatorMenuItem(),
 
