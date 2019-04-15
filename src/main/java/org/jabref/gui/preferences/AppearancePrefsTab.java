@@ -28,6 +28,7 @@ class AppearancePrefsTab extends Pane implements PrefsTab {
     private final DialogService dialogService;
     private final RadioButton lightTheme;
     private final RadioButton darkTheme;
+    private final RadioButton customTheme;
 
     /**
      * Customization of appearance parameters.
@@ -52,12 +53,16 @@ class AppearancePrefsTab extends Pane implements PrefsTab {
         lightTheme.setToggleGroup(themeGroup);
         darkTheme = new RadioButton("Dark theme");
         darkTheme.setToggleGroup(themeGroup);
+        customTheme = new RadioButton("Custom theme");
+        customTheme.setToggleGroup(themeGroup);
 
         String cssFileName = prefs.get(JabRefPreferences.FX_THEME);
         if (StringUtil.isBlank(cssFileName) || ThemeLoader.MAIN_CSS.equalsIgnoreCase(cssFileName)) {
             lightTheme.setSelected(true);
         } else if (ThemeLoader.DARK_CSS.equals(cssFileName)) {
             darkTheme.setSelected(true);
+        } else if (ThemeLoader.DARK_CSS.equals(cssFileName)) {
+            customTheme.setSelected(true);
         }
 
         container.getChildren().addAll(overrideFonts, fontSizeContainer, fontTweaksLAF, lightTheme, darkTheme);
@@ -94,6 +99,9 @@ class AppearancePrefsTab extends Pane implements PrefsTab {
         } else if (darkTheme.isSelected() && !prefs.get(JabRefPreferences.FX_THEME).equals(ThemeLoader.DARK_CSS)) {
             prefs.put(JabRefPreferences.FX_THEME, ThemeLoader.DARK_CSS);
             isThemeChanged = true;
+        }else if (customTheme.isSelected() && !prefs.get(JabRefPreferences.FX_THEME).equals(ThemeLoader.DARK_CSS)) {
+            prefs.put(JabRefPreferences.FX_THEME, ThemeLoader.DARK_CSS);
+            isThemeChanged = true;
         }
 
         boolean isRestartRequired =
@@ -109,7 +117,24 @@ class AppearancePrefsTab extends Pane implements PrefsTab {
 
     @Override
     public boolean validateSettings() {
-        return true;
+        if (overrideFonts.isSelected())
+        {
+            if(Integer.parseInt(fontSize.getText()) > 20)
+            {
+                dialogService.showErrorDialogAndWait(
+                    String.format("%s %s, %s", Localization.lang("The font size of:"),
+                        fontSize.getText(), Localization.lang("is too large")));
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
     }
 
     @Override

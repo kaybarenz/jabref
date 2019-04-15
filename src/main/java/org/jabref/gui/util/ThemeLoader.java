@@ -38,6 +38,7 @@ public class ThemeLoader {
 
     public static final String MAIN_CSS = "Base.css";
     public static final String DARK_CSS = "Dark.css";
+    public static final String CUSTOM_CSS = "Custom.css";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ThemeLoader.class);
     private final Optional<URL> additionalCssToLoad;

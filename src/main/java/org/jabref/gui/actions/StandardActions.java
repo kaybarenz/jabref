@@ -142,7 +142,7 @@ public enum StandardActions implements Action {
     OPEN_WEBPAGE(Localization.lang("Website"), Localization.lang("Opens JabRef's website")),
     OPEN_FACEBOOK("Facebook", Localization.lang("Opens JabRef's Facebook page"), IconTheme.JabRefIcons.FACEBOOK),
     OPEN_TWITTER("Twitter", Localization.lang("Opens JabRef's Twitter page"), IconTheme.JabRefIcons.TWITTER),
-    OPEN_DISCORD("Discord", Localization.lang("Opens Students JabRef Discord channel"), IconTheme.JabRefIcons.PDF_FILE),
+    OPEN_DISCORD("Discord", Localization.lang("Opens Students JabRef Discord channel"), IconTheme.JabRefIcons.DISCORD),
     OPEN_BLOG(Localization.lang("Blog"), Localization.lang("Opens JabRef's blog"), IconTheme.JabRefIcons.BLOG),
     OPEN_DEV_VERSION_LINK(Localization.lang("Development version"), Localization.lang("Opens a link where the current development version can be downloaded")),
     OPEN_CHANGELOG(Localization.lang("View change log"), Localization.lang("See what has been changed in the JabRef versions")),
